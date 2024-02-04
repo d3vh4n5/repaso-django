@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block extra_styles %}
+<link rel="stylesheet" href="{% static 'core/css/acerca_de.css' %}">
+{% endblock %}
+
+{% block title %}Aplicacion{% endblock %}
+
+{% block content %}
+
+<main class="container">
+
+    <h2>Ejercicio de prueba con django</h2>
+    <p>Esto es un mero ejercicio hecho con python y django.
+         La idea de este ejercicio fue crear una web desde cero 
+        en la que se pueda hacer la carga de un elemento en base 
+    de datos (en este caso de alumnos) y luego tener un listado de los mismos, 
+        todo esto en secciones distintas y algunas (como agregar alumnos) Funcionando 
+        con métodos distintos de programación.
+    </p>
+    <br>
+    <br>
+    <p>Todo esto como ejemplo y caso de estudio de la tecnología django.
+    </p>
+    <p>Por ello lo principal en este ejercicio era solo el funcionamiento 
+        estructural del backend, dejando de lado todo lo referente al diseño, al cual 
+        se le dió un mínimo de estilos para que sea mas entendible a la vista.
+    </p>
+</main>
+
+
+{% endblock %}
