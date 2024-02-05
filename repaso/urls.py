@@ -22,5 +22,8 @@ urlpatterns = [
 
 
     # Rutas de core
-    path('core/', include('core.urls'))
+    path('core/', include('core.urls')),
+
+    # Rutas test
+    path('test/', include('pruebaslocas.urls'))
 ]

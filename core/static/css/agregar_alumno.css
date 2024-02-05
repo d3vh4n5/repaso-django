@@ -1,0 +1,17 @@
+form{
+    max-width: 500px !important;
+}
+
+form div{
+    padding: 10px 0;
+    display: flex;
+    gap: 5px;
+}
+
+form div label {
+    flex: 3;
+}
+
+form div input {
+    flex: 9;
+}

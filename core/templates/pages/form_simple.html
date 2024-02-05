@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/agregar_alumno.css' %}">
+{% endblock %}
+
+{% block title %}Aplicacion{% endblock %}
+
+{% block content %}
+
+<main class="container">
+
+
+    <h1>
+        {{ titulo }}
+    </h1>
+
+    <form  method="POST" class='card container container-sm' action="{% url 'form_simple' %}">
+        {% csrf_token %}
+        <input type="text" name="algo" placeholder="Inserte algo">
+        <div class="p-2" >
+
+            <input type='reset' value="Limpiar" class='btn btn-secondary'>
+            <input type='submit' value="agregar_alumno" class='btn btn-primary'>
+        </div>
+    </form>
+
+</main>
+
+
+{% endblock %}
+
+{% block extra_scripts %}
+
+{% endblock %}
