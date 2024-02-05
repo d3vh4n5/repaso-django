@@ -1,4 +1,5 @@
 from django import forms
+from .models import *
 
 class AgregarAlumno(forms.Form):
 
@@ -8,10 +9,19 @@ class AgregarAlumno(forms.Form):
         (3, "Noche"),
     )
 
+    SEXO_CHOICES = (
+        ('O', 'Otro'),
+        ('M', 'Masculino'),
+        ('F', 'Femenino'),
+    )
+
     nombre = forms.CharField(label="Nombre", max_length=20, min_length=3)
     apellido = forms.CharField(label="Apellido", max_length=20, min_length=2)
+    dni = forms.CharField(label="Apellido", max_length=12, min_length=9)
     edad = forms.IntegerField(label="Edad")
+    sexo = forms.ChoiceField(label="Sexo", choices=SEXO_CHOICES)
     pago = forms.BooleanField(label="Pagó primera cuota", required=False)
+    curso = forms.ModelChoiceField(queryset=Curso.objects.all(), label="Curso")
     turno = forms.ChoiceField(label="Turno", choices=TURNOS)
     fecha_alta = forms.DateField(label="Fecha ingreso", widget=forms.DateInput(
         attrs={'type': 'date'}

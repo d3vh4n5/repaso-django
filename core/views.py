@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 from .forms import AgregarAlumno
+from core.models import Alumno
+from datetime import date
 
 # Create your views here.
 def index(request):
@@ -14,14 +17,15 @@ def index(request):
 
 
 def listar_alumnos(request):
-    alumnos = ["Carlos", "Maria", "Jose", "Daniela"]
-
-    resultado = ""
-
-    for alumno in alumnos:
-        resultado += "<p><b>Nombre : </b>"+ alumno + "</p>"
+    alumnos = Alumno.objects.select_related('curso').all()
+    # alumnos = Alumno.objects.values()
+    # alumnos = Alumno.objects.all()
+    context = {
+        'titulo': 'Listado de alumnos',
+        'alumnos': alumnos
+    }
     
-    return HttpResponse(resultado)
+    return render(request, 'pages/lista_alumnos.html', context)
 
 def agregar_alumno(request):
 
@@ -33,8 +37,24 @@ def agregar_alumno(request):
             print(form.cleaned_data['nombre'])
             print(form.cleaned_data['apellido'])
             print(form.cleaned_data['edad'])
+            print(form.cleaned_data['fecha_alta'])
             # Insertamos en la DB el nuevo alumno
-            return HttpResponseRedirect("lista_alumnos")
+
+            alumno = Alumno(
+                nombre = form.cleaned_data['nombre'],
+                apellido = form.cleaned_data['apellido'],
+                dni = form.cleaned_data['dni'],
+                edad = form.cleaned_data['edad'],
+                pago_primera_cuota = form.cleaned_data['pago'],
+                turno = form.cleaned_data['turno'],
+                curso = form.cleaned_data['curso'],
+                sexo = form.cleaned_data['sexo'],
+                fecha_ingreso = form.cleaned_data['fecha_alta']
+            )
+
+            alumno.save()
+
+            return HttpResponseRedirect(reverse("listar_alumnos"))
 
     else:
         form = AgregarAlumno()

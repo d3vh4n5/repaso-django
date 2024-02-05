@@ -9,9 +9,9 @@ form div{
 }
 
 form div label {
-    flex: 3;
+    flex: 1;
 }
 
 form div input {
-    flex: 9;
+    flex: 2;
 }
