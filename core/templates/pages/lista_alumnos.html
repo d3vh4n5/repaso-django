@@ -21,10 +21,11 @@
             <th scope="col">#</th>
             <th scope="col">Nombre: </th>
             <th scope="col">Apellido</th>
+            <th scope="col">DNI</th>
             <th scope="col">Edad</th>
             <th scope="col">Sexo</th>
             <th scope="col">Curso</th>
-            <th scope="col">Pago</th>
+            <th scope="col">Activo?</th>
             <th scope="col">Turno</th>
             <th scope="col">Fecha de ingreso</th>
             <th scope="col">Acciones</th>
@@ -41,7 +42,7 @@
                     <td>{{alumno.edad}}</td>
                     <td>{{ alumno.get_sexo_display|default:alumno.sexo  }}</td>
                     <td>{{ alumno.curso.nombre|default:"N/A" }}</td>
-                    <td>{{alumno.pago_primera_cuota}}</td>
+                    <td>{{alumno.activo}}</td>
                     <td>{{ alumno.get_turno_display|default:alumno.turno }}</td>
                     <td>{{alumno.fecha_ingreso}}</td>
                     <td>X - ✍️</td>

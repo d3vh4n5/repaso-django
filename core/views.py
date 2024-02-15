@@ -45,7 +45,7 @@ def agregar_alumno(request):
                 apellido = form.cleaned_data['apellido'],
                 dni = form.cleaned_data['dni'],
                 edad = form.cleaned_data['edad'],
-                pago_primera_cuota = form.cleaned_data['pago'],
+                activo = form.cleaned_data['activo'],
                 turno = form.cleaned_data['turno'],
                 curso = form.cleaned_data['curso'],
                 sexo = form.cleaned_data['sexo'],

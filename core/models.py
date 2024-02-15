@@ -51,7 +51,7 @@ class Alumno(models.Model):
         null = False,
         blank= False
     )
-    pago_primera_cuota = models.BooleanField()
+    activo = models.BooleanField()
     turno = models.IntegerField(choices=TURNOS)
     fecha_ingreso = models.DateField()
     curso = models.ForeignKey(Curso, on_delete=models.SET_NULL, null=True)
