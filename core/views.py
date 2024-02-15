@@ -17,9 +17,9 @@ def index(request):
 
 
 def listar_alumnos(request):
-    alumnos = Alumno.objects.select_related('curso').all()
+    # alumnos = Alumno.objects.select_related('curso').all()
     # alumnos = Alumno.objects.values()
-    # alumnos = Alumno.objects.all()
+    alumnos = Alumno.objects.all()
     context = {
         'titulo': 'Listado de alumnos',
         'alumnos': alumnos
@@ -44,10 +44,10 @@ def agregar_alumno(request):
                 nombre = form.cleaned_data['nombre'],
                 apellido = form.cleaned_data['apellido'],
                 dni = form.cleaned_data['dni'],
-                edad = form.cleaned_data['edad'],
+                # edad = form.cleaned_data['edad'],
                 activo = form.cleaned_data['activo'],
-                turno = form.cleaned_data['turno'],
-                curso = form.cleaned_data['curso'],
+                # turno = form.cleaned_data['turno'],
+                # curso = form.cleaned_data['curso'],
                 sexo = form.cleaned_data['sexo'],
                 fecha_ingreso = form.cleaned_data['fecha_alta']
             )

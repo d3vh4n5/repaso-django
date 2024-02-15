@@ -22,11 +22,11 @@
             <th scope="col">Nombre: </th>
             <th scope="col">Apellido</th>
             <th scope="col">DNI</th>
-            <th scope="col">Edad</th>
+            {% comment %} <th scope="col">Edad</th> {% endcomment %}
             <th scope="col">Sexo</th>
-            <th scope="col">Curso</th>
+            {% comment %} <th scope="col">Curso</th> {% endcomment %}
             <th scope="col">Activo?</th>
-            <th scope="col">Turno</th>
+            {% comment %} <th scope="col">Turno</th> {% endcomment %}
             <th scope="col">Fecha de ingreso</th>
             <th scope="col">Acciones</th>
           </tr>
@@ -39,11 +39,11 @@
                     <td>{{alumno.nombre}}</td>
                     <td>{{alumno.apellido}}</td>
                     <td>{{alumno.dni}}</td>
-                    <td>{{alumno.edad}}</td>
+                    {% comment %} <td>{{alumno.edad}}</td> {% endcomment %}
                     <td>{{ alumno.get_sexo_display|default:alumno.sexo  }}</td>
-                    <td>{{ alumno.curso.nombre|default:"N/A" }}</td>
+                    {% comment %} <td>{{ alumno.curso.nombre|default:"N/A" }}</td> {% endcomment %}
                     <td>{{alumno.activo}}</td>
-                    <td>{{ alumno.get_turno_display|default:alumno.turno }}</td>
+                    {% comment %} <td>{{ alumno.get_turno_display|default:alumno.turno }}</td> {% endcomment %}
                     <td>{{alumno.fecha_ingreso}}</td>
                     <td>X - ✍️</td>
                 </tr>
