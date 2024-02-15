@@ -94,6 +94,9 @@ class Alumno(Persona):
     #     null=True
     # )
 
+    def __str__(self):
+        return f"{self.legajo} - {self.nombre} {self.apellido}"
+
 class Docente(Persona):
     class Meta:
         verbose_name_plural = _("Docentes")
@@ -117,9 +120,29 @@ class Comision(models.Model):
     portada = models.ImageField(upload_to='imagenes/comisiones/', null=True, verbose_name='Portada')
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
     docente = models.ForeignKey(Docente, on_delete=models.SET_NULL, null=True)
-    alumnos = models.ManyToManyField(Alumno) 
+    # alumnos = models.ManyToManyField(Alumno) 
+    alumnos = models.ManyToManyField(Alumno, through="Inscripcion") 
     # Esto genera una tabla aparte para las relaciones, pero se pone en esta clase
     # porque será desde la cual se elijan los las entidades relacionadas a esta
 
     def __str__(self):
         return self.nombre
+    
+class Inscripcion(models.Model):
+    class Meta:
+        verbose_name_plural = _("Inscripciones")
+
+    class Estado(models.IntegerChoices):
+        INSCRIPTO = 1
+        CURSANDO = 2
+        EGRESADO = 3
+    
+    fecha_creacion= models.DateField(verbose_name = "Fecha de creacion")
+    alumno = models.ForeignKey(Alumno, on_delete = models.CASCADE)
+    comision = models.ForeignKey(Comision, on_delete=models.CASCADE)
+    estado = models.IntegerField(choices=Estado.choices, default=Estado.INSCRIPTO)
+    # opcion sin crear la clase interna Estado
+    # estado = models.IntegerChoices("Estado", "INSCRIPTO CURSANDO EGRESADO")
+
+    def __str__(self):
+        return self.id

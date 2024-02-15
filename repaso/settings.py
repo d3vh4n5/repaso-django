@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    #'django.contrib.admin', # Utiliza autodiscover para obtener el admin de todas las aplicaciones en "INSTALLED_APPS"
+    'django.contrib.admin.apps.SimpleAdminConfig', # No utiliza el autodiscover, se debe hacer todo a mano
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -56,7 +57,8 @@ ROOT_URLCONF = 'repaso.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

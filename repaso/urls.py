@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from core.admin import misitio_admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('custom_admin/', misitio_admin.urls),
 
 
     # Rutas de core

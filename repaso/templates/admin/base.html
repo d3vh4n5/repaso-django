@@ -1,0 +1,17 @@
+{% extends 'admin/base.html' %}
+
+{% block extrastyle %} {{ block.super }}
+<style>
+    :root{
+        --header-bg: pink;
+        --primary: pink !important;
+        --secondary: yellow;
+        --link-fg: red;
+        --link-selected-fg: green;
+    }
+
+    #header{
+        background: red !important;
+    }
+</style>
+{% endblock %}

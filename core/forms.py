@@ -26,3 +26,10 @@ class AgregarAlumno(forms.Form):
     fecha_alta = forms.DateField(label="Fecha ingreso", widget=forms.DateInput(
         attrs={'type': 'date'}
     ))
+
+
+class DocenteForm(forms.ModelForm):
+
+    class Meta:
+        model = Docente
+        fields = ("nombre", "apellido", "cuit",)
