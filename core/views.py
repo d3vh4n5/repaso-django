@@ -7,6 +7,7 @@ from datetime import date
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -77,6 +78,7 @@ def listar_alumnos(request):
     
     return render(request, 'pages/lista_alumnos.html', context)
 
+@login_required
 def agregar_alumno(request):
 
     if request.method == "POST":

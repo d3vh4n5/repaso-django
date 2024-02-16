@@ -20,12 +20,12 @@ class AgregarAlumno(forms.Form):
 
     nombre = forms.CharField(label="Nombre", max_length=20, min_length=3)
     apellido = forms.CharField(label="Apellido", max_length=20, min_length=2)
-    dni = forms.CharField(label="DNI", max_length=12, min_length=9)
+    dni = forms.CharField(label="DNI", max_length=12, min_length=7)
     edad = forms.IntegerField(label="Edad")
     sexo = forms.ChoiceField(label="Sexo", choices=SEXO_CHOICES)
     activo = forms.BooleanField(label="Activo?", required=False)
     curso = forms.ModelChoiceField(queryset=Curso.objects.all(), label="Curso")
-    turno = forms.ChoiceField(label="Turno", choices=TURNOS)
+    # turno = forms.ChoiceField(label="Turno", choices=TURNOS)
     fecha_alta = forms.DateField(label="Fecha ingreso", widget=forms.DateInput(
         attrs={'type': 'date'}
     ))

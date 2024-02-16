@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth_views
 
@@ -6,7 +6,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('login/', views.my_login, name='my_login'),
     path('register/', views.user_register, name='user_register'),
-    path('logout/', views.my_logout, name='my_logout'),
+    # path('logout/', views.my_logout, name='my_logout'),
+    path('accounts/', include('django.contrib.auth.urls')),
 
     # a mie ste logout no me funciono
     # path('logout/',
