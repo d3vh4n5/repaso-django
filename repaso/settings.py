@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core.apps.CoreConfig',
     'pruebaslocas',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

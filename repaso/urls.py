@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from core.admin import misitio_admin
+from core_api import urls as api_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +28,8 @@ urlpatterns = [
     path('core/', include('core.urls')),
 
     # Rutas test
-    path('test/', include('pruebaslocas.urls'))
+    path('test/', include('pruebaslocas.urls')),
+
+    # Rutas api
+    path('core_api', include(api_urls))
 ]
