@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block extra_styles %}
+    {% comment %} <link rel="stylesheet" href="{% static 'css/agregar_alumno.css' %}"> {% endcomment %}
+{% endblock %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<form method="POST" class="border rounded m-2 p-2">
+    {% csrf_token %}
+    {{ form }} 
+    <button class="btn btn-primary">Login</button>
+    <a href="{% url 'user_register' %}">Registrarse</a>
+</form>
+
+{% endblock %}
+
+{% block extra_scripts %}
+
+{% endblock %}
